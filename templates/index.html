@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+{% load facebook_tags %}
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<title>bookpy</title>
+		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/styles.css" />
+	</head>
+	<body>
+		<div id="welcome-logo"></div>
+		<div id="component-facebook-connect">
+			{% facebook_button %}
+		</div>
+		{% facebook_js %}	
+	</body>
+</html>

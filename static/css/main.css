@@ -1,0 +1,12 @@
+#welcome-logo {
+	background-color: blue;
+	width: 300px;
+	height: 300px;
+	margin: 100px auto 80px auto;
+	border-radius: 50%;
+}
+
+#component-facebook-connect {
+	margin: 0 auto 0 auto;
+	width: 194px;
+}

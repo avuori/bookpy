@@ -27,7 +27,7 @@ DATABASES = {
 # timezone as the operating system.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = 'America/Chicago'
+TIME_ZONE = 'Europe/Helsinki'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
@@ -72,6 +72,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    "c:/Users/dhpe/workspace/bookpy/static",
 )
 
 # List of finder classes that know how to find static files in
@@ -98,6 +99,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'socialregistration.middleware.FacebookMiddleware',
 )
 
 ROOT_URLCONF = 'bookpy.urls'
@@ -106,6 +108,12 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    "C:/Users/dhpe/workspace/bookpy/templates"
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.core.context_processors.request',
+    'django.core.context_processors.static',
 )
 
 INSTALLED_APPS = (
@@ -115,6 +123,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'socialregistration',
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
@@ -143,3 +152,13 @@ LOGGING = {
         },
     }
 }
+
+FACEBOOK_APP_ID = ''
+FACEBOOK_API_KEY = ''
+FACEBOOK_SECRET_KEY = ''
+
+FACEBOOK_REQUEST_PERMISSIONS = 'email,user_about_me'
+
+AUTHENTICATION_BACKENDS = (
+    'socialregistration.auth.FacebookAuth',
+)
